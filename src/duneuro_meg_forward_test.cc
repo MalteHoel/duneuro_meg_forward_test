@@ -82,6 +82,8 @@ int main(int argc, char** argv)
     // create coils
     /////////////////////////////////////////
 
+    std::cout << " Creating coils\n";
+
     // we first create some artificial coil positions around the sphere
     Coordinate center;
     center[0] = 127;
@@ -122,6 +124,8 @@ int main(int argc, char** argv)
     
     size_t number_of_fluxes = number_of_coils * dim;
     
+    std::cout << " Coils created\n";
+    
     /////////////////////////////////////////
     // read dipoles
     /////////////////////////////////////////
@@ -136,7 +140,8 @@ int main(int argc, char** argv)
     /////////////////////////////////////////
     // solve MEG forward problem numerically
     /////////////////////////////////////////
-    std::cout << " Solving problem numerically\n";
+
+    std::cout << " Solving MEG forward problem numerically\n";
 
     // create driver
     std::cout << " Creating driver\n";
@@ -156,7 +161,7 @@ int main(int argc, char** argv)
     std::vector<FieldType> numeric_solution = driver_ptr->solveMEGForward(*eeg_solution_storage_ptr, config_tree);
     std::cout << " MEG forward problem solved\n";
     
-    std::cout << " Numeric computation finished\n";
+    std::cout << " Numerical solution computed\n";
     
     /////////////////////////////////////////
     // solve MEG forward problem analytically
@@ -173,19 +178,20 @@ int main(int argc, char** argv)
       }
     }
 
-    std::cout << " Analytic computation finished\n";
+    std::cout << " Analytical solution computed\n";
 
     /////////////////////////////////////////
     // comparision of analytic and numeric solution
     /////////////////////////////////////////
     
-    std::cout << "\n\n Comparing numeric and analytic solution\n";
+    std::cout << "\n We now compare the analytical and the numerical solution\n";
     std::cout << " Norm analytic solution :\t\t " << norm(analytic_solution) << "\n";
     std::cout << " Norm numeric solution :\t\t " << norm(numeric_solution) << "\n";
     std::cout << " Relative error :\t\t\t " << relative_error(numeric_solution, analytic_solution) << "\n";
     std::cout << " MAG : \t\t\t\t\t " << magnitude_error(numeric_solution, analytic_solution) << "\n";
     std::cout << " RDM : \t\t\t\t\t " << relative_difference_measure(numeric_solution, analytic_solution) << "\n";
     
+    std::cout << " Comparision finished\n\n";
 
     /////////////////////////////////////////
     // visualization

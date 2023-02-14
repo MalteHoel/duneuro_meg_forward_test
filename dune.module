@@ -3,7 +3,7 @@
 ################################
 
 # Name of the module
-Module: duneuro-meg-test
+Module: duneuro_meg_forward_test
 Version: 0.1
 Maintainer: m_hoel20@uni-muenster.de
 # Required build dependencies

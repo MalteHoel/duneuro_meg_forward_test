@@ -1,4 +1,4 @@
-/* begin duneuro-meg-test
+/* begin duneuro_meg_forward_test
    put the definitions for config.h specific to
    your project here. Everything above will be
    overwritten
@@ -28,18 +28,18 @@
 
 /* end private */
 
-/* Define to the version of duneuro-meg-test */
-#define DUNEURO_MEG_TEST_VERSION "@DUNEURO_MEG_TEST_VERSION@"
+/* Define to the version of duneuro_meg_forward_test */
+#define DUNEURO_MEG_FORWARD_TEST_VERSION "@DUNEURO_MEG_FORWARD_TEST_VERSION@"
 
-/* Define to the major version of duneuro-meg-test */
-#define DUNEURO_MEG_TEST_VERSION_MAJOR @DUNEURO_MEG_TEST_VERSION_MAJOR@
+/* Define to the major version of duneuro_meg_forward_test */
+#define DUNEURO_MEG_FORWARD_TEST_VERSION_MAJOR @DUNEURO_MEG_FORWARD_TEST_VERSION_MAJOR@
 
-/* Define to the minor version of duneuro-meg-test */
-#define DUNEURO_MEG_TEST_VERSION_MINOR @DUNEURO_MEG_TEST_VERSION_MINOR@
+/* Define to the minor version of duneuro_meg_forward_test */
+#define DUNEURO_MEG_FORWARD_TEST_VERSION_MINOR @DUNEURO_MEG_FORWARD_TEST_VERSION_MINOR@
 
-/* Define to the revision of duneuro-meg-test */
-#define DUNEURO_MEG_TEST_VERSION_REVISION @DUNEURO_MEG_TEST_VERSION_REVISION@
+/* Define to the revision of duneuro_meg_forward_test */
+#define DUNEURO_MEG_FORWARD_TEST_VERSION_REVISION @DUNEURO_MEG_FORWARD_TEST_VERSION_REVISION@
 
-/* end duneuro-meg-test
+/* end duneuro_meg_forward_test
    Everything below here will be overwritten
 */

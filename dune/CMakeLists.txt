@@ -1,1 +1,1 @@
-add_subdirectory(duneuro-meg-test)
+add_subdirectory(duneuro_meg_forward_test)

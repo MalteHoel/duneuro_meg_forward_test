@@ -8,7 +8,7 @@ DEPENDENCIES=@REQUIRES@
 
 Name: @PACKAGE_NAME@
 Version: @VERSION@
-Description: duneuro-meg-test module
+Description: duneuro_meg_forward_test module
 URL: http://dune-project.org/
 Requires: duneuro-analytic-solution
 Libs: -L${libdir}

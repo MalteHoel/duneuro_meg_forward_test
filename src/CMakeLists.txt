@@ -1,2 +1,2 @@
-add_executable("duneuro-meg-test" duneuro-meg-test.cc)
-target_link_dune_default_libraries("duneuro-meg-test")
+add_executable("duneuro_meg_forward_test" duneuro_meg_forward_test.cc)
+target_link_dune_default_libraries("duneuro_meg_forward_test")
