@@ -198,6 +198,15 @@ int main(int argc, char** argv)
     /////////////////////////////////////////
     
     if(config_tree.get<bool>("output.visualize_fields")) {
+      std::cout << " Writing output\n";
+      // first write volume conductor
+      std::cout << " Writing volume conductor\n";
+      auto volume_writer_ptr = driver_ptr->volumeConductorVTKWriter(config_tree);
+      volume_writer_ptr->addVertexData(*eeg_solution_storage_ptr, "correction_potential");
+      volume_writer_ptr->addCellDataGradient(*eeg_solution_storage_ptr, "gradient");
+      config_tree["output.filename"] = config_tree["output.filename_volume_conductor"];
+      volume_writer_ptr->write(config_tree.sub("output"));
+
       // compute fields analytically
       std::vector<Coordinate> magnetic_field(number_of_coils);
       std::vector<Coordinate> primary_field(number_of_coils);
@@ -207,13 +216,13 @@ int main(int argc, char** argv)
         primary_field[i] = analyticSolution.primaryField(coils[i]);
         secondary_field[i] = analyticSolution.secondaryField(coils[i]);
       } 
-      
+
       // write dipole
       std::cout << " Writing dipole\n";
       duneuro::PointVTKWriter<FieldType, dim> dipole_writer{test_dipole};
       std::string dipole_filename_string = config_tree.get<std::string>("output.filename_dipole");
       dipole_writer.write(dipole_filename_string);
-      
+
       // write magnetic fields
       std::cout << " Writing magnetic field\n";
       duneuro::PointVTKWriter<FieldType, dim> field_writer{coils};
@@ -222,6 +231,8 @@ int main(int argc, char** argv)
       field_writer.addVectorData("secondary_magnetic_field_analytic", secondary_field);
       std::string magnetic_field_filename_string = config_tree.get<std::string>("output.filename_magnetic_fields_analytic");
       field_writer.write(magnetic_field_filename_string);
+      
+      std::cout << "Output written\n";
     }
 
     std::cout << " The program didn't crash!\n";
